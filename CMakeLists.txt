@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(WasserEngine)
+project(Wasser)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -23,6 +23,6 @@ set(SOURCES
     src/EQ.cpp
 )
 
-add_executable(wasser ${SOURCES})
+add_executable(mediakit ${SOURCES})
 
-target_link_libraries(wasser SDL2 SDL2_mixer)
+target_link_libraries(mediakit SDL2 SDL2_mixer)

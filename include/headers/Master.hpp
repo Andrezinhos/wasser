@@ -17,6 +17,11 @@ public:
     bool init();
     void load(const std::string& file);
     void play();
+    void multiPlay(const std::string& path, int channel);
+    void pauseChannel(int channel);
+    void resumeChannel(int channel);
+    void stopChannel(int channel);
+    void setChannelVol(int channel, int vol);
     void pause();
     void previous();
     void resume();
@@ -31,8 +36,6 @@ public:
     void next();
     void fadeIn(int ms);
     void fadeOut(int ms);
-    void volUp();
-    void volDown();
     void volSet(int value);
 
     Playlist playlist;

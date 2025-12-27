@@ -166,6 +166,37 @@ void AudioPlayer::play(){
     if(!queue.isEmpty() && fs::path(queue.front().filename().string()) == filepath.string()) queue.dequeue();
 }
 
+void AudioPlayer::multiPlay(const std::string& path, int channel){
+    Mix_Chunk* sound = Mix_LoadWAV(path.c_str());
+    if (!sound) {
+        std::cout << "Error to load sound: " << Mix_GetError() << "\n";
+        return;
+    } 
+    Mix_PlayChannel(channel, sound, 0);
+    std::cout << "playing: " << path << " in the channel: " << channel << "\n";
+}
+
+void AudioPlayer::resumeChannel(int channel){
+    Mix_Resume(channel);
+    std::cout << "Resumed: " << channel << "\n";
+}
+
+void AudioPlayer::pauseChannel(int channel){ 
+    Mix_Pause(channel);
+    std::cout << "Paused: " << channel << "\n";
+}
+
+void AudioPlayer::stopChannel(int channel){ 
+    Mix_HaltChannel(channel);
+    std::cout << "Stoped: " << channel << "\n";
+}
+
+void AudioPlayer::setChannelVol(int channel, int vol){ 
+    vol = std::clamp(vol, 0, MIX_MAX_VOLUME);
+    Mix_Volume(channel, 0);
+    std::cout << "Channel: " << channel << " Vol Set to:" << vol << "\n";
+}
+
 void AudioPlayer::pause(){
     if (!playlist.curr) {
         std::cout << "No song Loaded\n" << "\n";
@@ -296,20 +327,6 @@ void AudioPlayer::fadeOut(int ms){
     
     isPlaying = false;
     isPaused = true;
-}
-
-void AudioPlayer::volUp() {
-    int vol = Mix_VolumeMusic(-1);
-    vol = std::min(vol + 10, MIX_MAX_VOLUME);
-    Mix_VolumeMusic(vol);
-    std::cout << "VOLUME UP TO: " << vol << "\n";
-}
-
-void AudioPlayer::volDown() {
-    int vol = Mix_VolumeMusic(-1);
-    vol = std::max(vol - 10, 0);
-    Mix_VolumeMusic(vol);
-    std::cout << "VOLUME DOWN TO: " << vol << "\n";
 }
 
 void AudioPlayer::volSet(int value) {

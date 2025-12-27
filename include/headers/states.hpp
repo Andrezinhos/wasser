@@ -7,6 +7,7 @@ class States{
 public:
     std::string name;
     bool running;
+    bool multiChannel = false;
     bool debugMode = false;
     int choice;
     void clearScreen() {
