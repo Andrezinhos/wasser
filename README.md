@@ -4,11 +4,11 @@
 
 ### Hello there
 
-this project is an Audio Engine, that's terminal-based, using the SDL_mixer and the Mini Audio libraries
+this project is an Audio Engine, using the SDL_mixer and the Mini Audio libraries
 it works clear and it´s inspired by a project called "Music_Player"
 
-it has an embedded player based on the two libraries used in this project
-with the name "MediaKit", which could be removed if you want just the engine
+it has an embedded player, that's terminal-based, with the name "MediaKit"
+which could be removed if you want just the engine,
 for those who want a more complete experience, use the version with the SDL_mixer
 
 to use it, you need to add to the PATH, and to use the embedded player
