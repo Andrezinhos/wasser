@@ -157,7 +157,9 @@ void AudioPlayer::play(){
         return;
     }
 
-    Mix_PlayMusic(music, 1);
+    if (state.OnLoop == true) Mix_PlayMusic(music, -1);
+    else Mix_PlayMusic(music, 1);
+
     std::cout << "Playing: " << temp << "\n";
 
     isPlaying = true;

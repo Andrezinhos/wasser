@@ -9,6 +9,7 @@ public:
     bool running;
     bool multiChannel = false;
     bool debugMode = false;
+    bool OnLoop = false;
     int choice;
     void clearScreen() {
 #ifdef _WIN32

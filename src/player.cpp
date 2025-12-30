@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
 
         if (arg == "--version"){
             state.clearScreen();
-            std::cout << "\nWASSER AUDIO ENGINE v0.10.1 - SQC Tech\n" << "\n";
+            std::cout << "\nWASSER AUDIO ENGINE v0.11.0 - SQC Tech\n" << "\n";
         }
     }
     return 0;

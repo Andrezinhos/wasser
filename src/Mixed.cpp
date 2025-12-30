@@ -42,6 +42,12 @@ Powered by Wasser
             ap.play();
             SDL_Delay(100);
         }
+        else if (cmd == "play -loop" || cmd == ".,"){
+            state.clearScreen();
+            state.OnLoop = true;
+            ap.play();
+            SDL_Delay(100);
+        }
         else if (cmd == "playch" || cmd == ".."){
             state.clearScreen();
             std::string sound;
@@ -61,6 +67,7 @@ Powered by Wasser
         }
         else if (cmd == "pause" || cmd == ";"){
             state.clearScreen();
+            state.OnLoop = false;
             ap.pause();
         }
         else if (cmd == "pausech" || cmd == ";;"){
